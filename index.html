@@ -1,1 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>КиноБилеты</title>
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#e50914">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+</head>
+<body>
 
+<header>
+  <h1>🎬 КиноБилеты</h1>
+  <div class="user">Гость</div>
+</header>
+
+<main>
+  <section id="screen-catalog">
+    <h2>Сейчас в кино</h2>
+    <div class="movies" id="movies"></div>
+  </section>
+
+  <section id="screen-showtimes" class="hidden">
+    <button class="back" onclick="backToCatalog()">← Назад к каталогу</button>
+    <h2 id="showtimes-title">Фильм</h2>
+    <div class="showtimes" id="showtimes"></div>
+
+    <div id="hall-block" class="hidden">
+      <div class="hall">
+        <div class="screen"></div>
+        <div id="hall-rows"></div>
+        <div class="legend">
+          <div><span class="dot" style="background:#2a2a2a"></span>Свободно</div>
+          <div><span class="dot" style="background:#e50914"></span>Выбрано</div>
+          <div><span class="dot" style="background:#555"></span>Занято</div>
+          <div><span class="dot" style="background:#b8860b"></span>VIP</div>
+        </div>
+      </div>
+
+      <div class="summary">
+        <div class="info">
+          Выбрано мест: <strong id="seats-count">0</strong> ·
+          Сумма: <strong id="total-price">0 ₽</strong>
+        </div>
+        <button class="btn" id="pay-btn" disabled onclick="pay()">Оплатить</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="modal hidden" id="success-modal">
+  <div class="box">
+    <div class="icon">✅</div>
+    <h3>Оплата прошла!</h3>
+    <p id="success-text">Ваши билеты в личном кабинете</p>
+    <button class="btn" onclick="closeModal()">Отлично</button>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
